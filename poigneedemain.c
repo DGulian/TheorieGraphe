@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <structure.h>"
+#include "structure.h"
 
-void poigneeDeMain(Graph graphe)$
+void poigneeDeMain(Graph graphe)
 {
     int i = 0 ;
     int sommeSommet;
     int nbArrete ;
 
 
-     sommeSommet= nb_degres
+     sommeSommet= nb_degres;
 
 
     nbArrete = 2*graphe.nb_lien ;
