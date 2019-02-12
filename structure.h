@@ -8,3 +8,4 @@ typedef struct{
 
 
 char * nbrVoisin(Graph graphe, char sommet);
+
