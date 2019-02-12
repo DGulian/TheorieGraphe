@@ -6,36 +6,50 @@ char *nbrVoisin(Graph graphe, char sommet, int *nbrVois)
 {
     int i = 0;
     int cpt = 0;
-    char *successeurs;
     char *predecesseurs;
     int taille = 0;
-    if (graphe.oriented == 1)
+    while (i < 330)
     {
-        while (i < 330)
+        if (graphe.liens[i][0] == sommet)
         {
-            if (graphe.liens[i][0] == sommet)
-            {
-                successeurs = (char *)realloc(successeurs, taille + sizeof(char));
-                successeurs[cpt] = graphe.liens[i][1];
-                cpt++;
-            }
-            i++;
+            predecesseurs = (char *)realloc(predecesseurs, taille + sizeof(char));
+            predecesseurs[cpt] = graphe.liens[i][1];
+            cpt++;
         }
+        i++;
+    }
+    *nbrVois = cpt;
+    return predecesseurs;
+}
 
-        while (i < 330)
+void voisinOriente(Graph graphe, char sommet, char *predecesseurs, char *successeurs)
+{
+    int i = 0;
+    int cpt = 0;
+    char *predec;
+    char *succes;
+    int taille = 0;
+    while (i < 330)
+    {
+        if (graphe.liens[i][1] == sommet)
         {
-            if (graphe.liens[i][1] == sommet)
-            {
-                predecesseurs = (char *)realloc(predecesseurs, taille + sizeof(char));
-                predecesseurs[cpt] = graphe.liens[i][0];
-                cpt++;
-            }
-            i++;
+            predec = (char *)realloc(predec, taille + sizeof(char));
+            predec[cpt] = graphe.liens[i][0];
+            cpt++;
         }
+        i++;
+    }
 
-        return voisin;
+    while (i < 330)
+    {
+        if (graphe.liens[i][0] == sommet)
+        {
+            succes = (char *)realloc(succes, taille + sizeof(char));
+            succes[cpt] = graphe.liens[i][1];
+            cpt++;
+        }
+        i++;
     }
 }
 
-
-char 
+void main() {}
