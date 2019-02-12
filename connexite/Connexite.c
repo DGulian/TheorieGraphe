@@ -29,10 +29,5 @@ int connexite(Graph G, Sommet s):
         return 1;
     else
         return 0;
-
-
-
-
-
-        strcpy(sommet ,Voisin[i]);
+}
 
