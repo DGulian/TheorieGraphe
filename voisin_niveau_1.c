@@ -2,18 +2,18 @@
 #include <stdlib.h>
 #include "structure.h"
 
-char *nbrVoisin(Graph graphe, char sommet, int *nbrVois)
+char *voisinNonOriente(Graph graphe, char sommet, int *nbrVois)
 {
     int i = 0;
     int cpt = 0;
-    char *predecesseurs;
+    char *predecesseurs = malloc(sizeof(char));
     int taille = 0;
     while (i < 330)
     {
         if (graphe.liens[i][0] == sommet)
         {
-            predecesseurs = realloc(predecesseurs, taille + sizeof(char));
             predecesseurs[cpt] = graphe.liens[i][1];
+            predecesseurs = realloc(predecesseurs, taille + sizeof(char));
             cpt++;
         }
         i++;
@@ -26,25 +26,29 @@ void voisinOriente(Graph graphe, char sommet, char *predecesseurs, char *success
 {
     int i = 0;
     int cpt = 0;
-    char *predec;
-    char *succes;
-    int taille = 0;
+    char *predec = malloc(sizeof(char));
+    char *succes = malloc(sizeof(char));
+    int taille1 = 0;
+    int taille2 = 0;
     while (i < 330)
     {
         if (graphe.liens[i][1] == sommet)
         {
-            predec = (char *)realloc(predec, taille + sizeof(char));
+            taille1 = taille1 + sizeof(char); 
+            predec = realloc(predec, taille1);
             predec[cpt] = graphe.liens[i][0];
             cpt++;
         }
         i++;
     }
 
+    i = 0;
     while (i < 330)
     {
         if (graphe.liens[i][0] == sommet)
         {
-            succes = (char *)realloc(succes, taille + sizeof(char));
+            taille2 = taille2 + sizeof(char); 
+            succes = realloc(succes, taille2);
             succes[cpt] = graphe.liens[i][1];
             cpt++;
         }
