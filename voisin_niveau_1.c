@@ -11,7 +11,7 @@ char *voisinNonOriente(Graph graphe, char sommet, int *nbrVois)
     int taille = 0;
     while (i < 330)
     {
-        if ((graphe.liens[i][0] == sommet) && (searchSom(predecesseurs, cpt, sommet)==0))
+        if ((graphe.liens[i][0] == sommet) && (searchSom(predecesseurs, cpt, graphe.liens[i][0])==0))
         {
             predecesseurs[cpt] = graphe.liens[i][1];
             predecesseurs = realloc(predecesseurs, taille + sizeof(char));
@@ -24,9 +24,9 @@ char *voisinNonOriente(Graph graphe, char sommet, int *nbrVois)
 
     while (i < 330)
     {
-        if ((graphe.liens[i][0] == sommet) && (searchSom(predecesseurs, cpt, sommet)==0))
+        if ((graphe.liens[i][1] == sommet) && (searchSom(predecesseurs, cpt, graphe.liens[i][1])==0))
         {
-            predecesseurs[cpt] = graphe.liens[i][1];
+            predecesseurs[cpt] = graphe.liens[i][0];
             predecesseurs = realloc(predecesseurs, taille + sizeof(char));
             cpt++;
         }
