@@ -1,25 +1,23 @@
-#include "structure.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include "structure.h"
 
-void * simple_complet(Graph graphe, char sommet){
+void simple_complet(Graph graphe, char sommet){
 
 char * marque;
 char * fils;
+int taille = 0;
 
+marque = voisinNonOriente(graphe, sommet, &taille);
 
-
-for (size_t i = 0; i < strlen(fils); i++) {
+for (size_t i = 0; i < taille; i++) {
   if(fils[i]!=marque[i]){
-   simple_complet(Graph graphe, char fils[i]);
+   simple_complet(graphe, fils[i]);
     }
   }
 }
 
-
-int main(int argc, char const *argv[]) {
-
-
+int main() {
+  /* code */
   return 0;
 }
