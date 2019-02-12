@@ -49,5 +49,12 @@ Graph initialisation_graphe(){
 int main(){
 Graph g= initialisation_graphe();
 poigneeDeMain(g);
+int toto;
+char * tab=nbrVoisin(g,'A',&toto);
+int i=0;
+while(i<toto){
+    printf("%c",tab[i]);
+    i++;
+}
     return 0;
 }

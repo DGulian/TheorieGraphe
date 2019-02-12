@@ -12,7 +12,7 @@ char *nbrVoisin(Graph graphe, char sommet, int *nbrVois)
     {
         if (graphe.liens[i][0] == sommet)
         {
-            predecesseurs = (char *)realloc(predecesseurs, taille + sizeof(char));
+            predecesseurs = realloc(predecesseurs, taille + sizeof(char));
             predecesseurs[cpt] = graphe.liens[i][1];
             cpt++;
         }
