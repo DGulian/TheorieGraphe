@@ -23,8 +23,13 @@ int connexite(Graph G, Sommet s):
             strcpy(file[i], Voisin[i](Graph ,sommet);
             positionFin++;
         }
-
         positionIni++;
+    }
+    if (strcmp(file, Graph.sommets) == 0)
+        return 1;
+    else
+        return 0;
+
 
 
 
