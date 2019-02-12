@@ -51,5 +51,3 @@ void voisinOriente(Graph graphe, char sommet, char *predecesseurs, char *success
         i++;
     }
 }
-
-void main() {}

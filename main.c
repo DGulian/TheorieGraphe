@@ -48,5 +48,6 @@ Graph initialisation_graphe(){
 }
 int main(){
 Graph g= initialisation_graphe();
+poigneeDeMain(g);
     return 0;
 }
