@@ -1,1 +1,3 @@
-char * nbrVoisin(char sommet);
+#include "structure.h"
+
+char * nbrVoisin(Graph graphe, char sommet);
