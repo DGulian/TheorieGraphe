@@ -14,7 +14,11 @@ for (size_t i = 0; i < taille; i++) {
   if(fils[i]!=marque[i]){
    simple_complet(graphe, fils[i]);
     }
+  if(fils=NULL){
+    printf("Le graphe est simple complet");
   }
+  }
+
 }
 
 int main() {
