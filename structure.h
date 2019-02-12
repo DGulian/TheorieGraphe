@@ -7,3 +7,4 @@ typedef struct{
 }Graph;
 
 char * nbrVoisin(Graph graphe, char sommet, int *nbrVois);
+void poigneeDeMain(Graph graphe);
