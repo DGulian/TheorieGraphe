@@ -7,6 +7,7 @@ char *voisinNonOriente(Graph graphe, char sommet, int *nbrVois)
     int i = 0;
     int cpt = 0;
     char *predecesseurs = malloc(sizeof(char));
+    char *successeurs = malloc(sizeof(char));
     int taille = 0;
     while (i < 330)
     {
@@ -18,7 +19,22 @@ char *voisinNonOriente(Graph graphe, char sommet, int *nbrVois)
         }
         i++;
     }
-    *nbrVois = cpt;
+    
+    *nbrVois += cpt;
+
+     while (i < 330)
+    {
+        if (graphe.liens[i][0] == sommet)
+        {
+            predecesseurs[cpt] = graphe.liens[i][1];
+            predecesseurs = realloc(predecesseurs, taille + sizeof(char));
+            cpt++;
+        }
+        i++;
+    }
+    *nbrVois += cpt;
+
+
     return predecesseurs;
 }
 
