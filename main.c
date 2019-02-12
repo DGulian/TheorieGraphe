@@ -46,6 +46,10 @@ Graph initialisation_graphe(){
    
     return g;
 }
+
+char * vosin_niveau_1(Graph g){
+    
+}
 int main(){
 Graph g= initialisation_graphe();
     return 0;

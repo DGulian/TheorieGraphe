@@ -9,10 +9,10 @@ void poigneeDeMain(Graph graphe)
     int nbArrete ;
 
 
-     sommeSommet= nb_degres;
+     sommeSommet= graphe.nb_degres;
 
 
-    nbArrete = 2*graphe.nb_lien ;
+    nbArrete = 2*graphe.nb_liens ;
 
     if (nbArrete == sommeSommet)
     {
