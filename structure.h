@@ -7,4 +7,4 @@ typedef struct{
 }Graph;
 
 
-char * nbrVoisin(Graph graphe, char sommet);
+char * nbrVoisin(Graph graphe, char sommet, int *nbrVois);
