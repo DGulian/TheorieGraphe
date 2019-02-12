@@ -1,15 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "structure.h"
+#include "voisin_niveau_1.c"
+
+
+
 
 void poigneeDeMain(Graph graphe)
 {
+
     int i = 0 ;
     int sommeSommet;
     int nbArrete ;
+    int taille;
 
-
-     sommeSommet= graphe.nb_degres;
+     sommeSommet= voisinNonOriente(graphe, graphe.sommets, &taille);
 
 
     nbArrete = 2*graphe.nb_liens ;
