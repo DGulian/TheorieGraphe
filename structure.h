@@ -7,6 +7,6 @@ typedef struct{
 }Graph;
 
 char * voisinNonOriente(Graph graphe, char sommet, int *nbrVois);
-void voisinOriente (Graph graphe, char sommet, char *predecesseurs, char *successeurs);
+void voisinOriente (Graph graphe, char sommet, char *predecesseurs, char *successeurs, int *taillePred, int *tailleSucc);
 void simple_complet(Graph graphe, char sommet);
 void poigneeDeMain(Graph graphe);
