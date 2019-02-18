@@ -10,23 +10,25 @@ char *voisinNonOriente(Graph graphe, char sommet, int *nbrVois)
     int taille = 0;
     while (i < 330)
     {
-        if ((graphe.liens[i][0] == sommet) && (searchSom(predecesseurs, cpt, graphe.liens[i][0])==0))
+        if ((graphe.liens[i][0] == sommet) && (searchSom(predecesseurs, cpt, graphe.liens[i][1]) == 0))
         {
             predecesseurs[cpt] = graphe.liens[i][1];
-            predecesseurs = realloc(predecesseurs, taille + sizeof(char));
+            taille = taille + 1;
+            predecesseurs = realloc(predecesseurs, (taille) * sizeof(char));
             cpt++;
         }
         i++;
     }
 
     *nbrVois += cpt;
-
+    i = 0;
     while (i < 330)
     {
-        if ((graphe.liens[i][1] == sommet) && (searchSom(predecesseurs, cpt, graphe.liens[i][1])==0))
+        if ((graphe.liens[i][1] == sommet) && (searchSom(predecesseurs, cpt, graphe.liens[i][0]) == 0))
         {
             predecesseurs[cpt] = graphe.liens[i][0];
-            predecesseurs = realloc(predecesseurs, taille + sizeof(char));
+            taille = taille + 1;
+            predecesseurs = realloc(predecesseurs, (taille) * sizeof(char));
             cpt++;
         }
         i++;
@@ -36,41 +38,48 @@ char *voisinNonOriente(Graph graphe, char sommet, int *nbrVois)
     return predecesseurs;
 }
 
-void voisinOriente(Graph graphe, char sommet, char *predecesseurs, char *successeurs, int *taillePred, int *tailleSucc)
+char *voisinOriente1(Graph graphe, char sommet, int *taillePred, int *tailleSucc)
 {
     int i = 0;
     int cpt = 0;
-    char *predec = malloc(sizeof(char));
-    char *succes = malloc(sizeof(char));
+    char *predecesseurs = malloc(sizeof(char));
     int taille1 = 0;
-    int taille2 = 0;
     while (i < 330)
     {
-        if ((graphe.liens[i][1] == sommet) && (searchSom(predecesseurs, cpt, sommet)==0))
+        if ((graphe.liens[i][0] == sommet) && (searchSom(predecesseurs, cpt, graphe.liens[i][1]) == 0))
         {
-            taille1 = taille1 + sizeof(char);
-            predec = realloc(predec, taille1);
-            predec[cpt] = graphe.liens[i][0];
+            taille1 = taille1 + 1;
+            predecesseurs = realloc(predecesseurs, taille1 * sizeof(char));
+            predecesseurs[cpt] = graphe.liens[i][1];
             cpt++;
+            printf("%s", "nique ta mere");
         }
         i++;
     }
     *taillePred = cpt;
+    printf("taille pred %d\n", *taillePred);
+    return predecesseurs;
+}
 
-    i = 0;
-    cpt = 0;
+char *voisinOriente2(Graph graphe, char sommet, int *taillePred, int *tailleSucc)
+{
+    int i = 0;
+    int cpt = 0;
+    int taille2 = 0;
+    char *successeurs = malloc(sizeof(char));
     while (i < 330)
     {
-        if ((graphe.liens[i][0] == sommet) && (searchSom(predecesseurs, cpt, sommet)==0))
+        if ((graphe.liens[i][1] == sommet) && (searchSom(successeurs, cpt, graphe.liens[i][0]) == 0))
         {
-            taille2 = taille2 + sizeof(char);
-            succes = realloc(succes, taille2);
-            succes[cpt] = graphe.liens[i][1];
+            taille2 = taille2 + 1;
+            successeurs = realloc(successeurs, taille2 * sizeof(char));
+            successeurs[cpt] = graphe.liens[i][0];
             cpt++;
         }
         i++;
     }
     *tailleSucc = cpt;
+    return successeurs;
 }
 
 int searchSom(char *tab, int taille, char sommet)
