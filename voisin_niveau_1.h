@@ -1,3 +1,5 @@
 #include "structure.h"
 
-char * nbrVoisin(Graph graphe, char sommet);
+char *voisinNonOriente(Graph graphe, char sommet, int *nbrVois);
+void voisinOriente(Graph graphe, char sommet, char *predecesseurs, char *successeurs, int *taillePred, int *tailleSucc);
+int searchSom(char *tab, int taille, char sommet);

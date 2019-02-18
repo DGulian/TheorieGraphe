@@ -7,7 +7,6 @@ char *voisinNonOriente(Graph graphe, char sommet, int *nbrVois)
     int i = 0;
     int cpt = 0;
     char *predecesseurs = malloc(sizeof(char));
-    char *successeurs = malloc(sizeof(char));
     int taille = 0;
     while (i < 330)
     {

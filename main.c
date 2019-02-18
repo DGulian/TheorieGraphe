@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "structure.h"
 
-
 Graph initialisation_graphe(){
     Graph g;
     int nombreN;
@@ -48,12 +47,13 @@ Graph initialisation_graphe(){
 }
 int main(){
 Graph g= initialisation_graphe();
-poigneeDeMain(g);
+//poigneeDeMain(g);
 int toto;
-char * tab=nbrVoisin(g,'A',&toto);
+char * tab=voisinNonOriente(g,'A',&toto);
 int i=0;
 while(i<toto){
     printf("%c",tab[i]);
+    printf("%s\n","");
     i++;
 }
     return 0;
