@@ -32,12 +32,16 @@ Graph initialisation_graphe()
     {
         char depart;
         char arrivee;
+        int poids;
         printf("Depart\n");
         scanf(" %c", &depart);
         g.liens[i][0] = depart;
         printf("Arrivee\n");
         scanf(" %c", &arrivee);
         g.liens[i][1] = arrivee;
+        printf("Poids du lien\n");
+        scanf(" %d", &poids);
+        g.liens[i][3] = poids;
         i++;
     }
 

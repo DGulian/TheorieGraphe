@@ -1,7 +1,7 @@
 typedef struct{
     int oriented;
     char sommets[25];
-    char liens[330][2];
+    char liens[330][3];
     int nb_degres;
     int nb_liens;
 }Graph;
