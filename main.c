@@ -47,7 +47,6 @@ int main()
 {
     Graph g = initialisation_graphe();
     printf("%s\n", "");
-    //poigneeDeMain(g);
     int taillePred;
     int tailleSucc;
     char *pred;
@@ -62,19 +61,17 @@ int main()
         succ = voisinOriente2(g, 'A', &taillePred, &tailleSucc);
     }
     int i = 0;
-    printf("va zyyyy %c", pred[0]);
+        printf("Pred : %d ", taillePred);
     while (i < taillePred)
     {
-        printf("prede %s %d %d\n", "",i, taillePred);
-        printf("%c", pred[i]);
+        printf("%c ", pred[i]);
         i++;
     }
      i = 0;
-        printf("succes %s %d\n", "", tailleSucc);
+        printf("\nSucc : %d ", tailleSucc);
     while (i < tailleSucc)
     {
-        printf("Succ : %d", tailleSucc);
-        printf("%c", succ[i]);
+        printf("%c ", succ[i]);
         i++;
     }
     printf("%s\n", "");

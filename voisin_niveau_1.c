@@ -46,13 +46,12 @@ char *voisinOriente1(Graph graphe, char sommet, int *taillePred, int *tailleSucc
     int taille1 = 0;
     while (i < 330)
     {
-        if ((graphe.liens[i][0] == sommet) && (searchSom(predecesseurs, cpt, graphe.liens[i][1]) == 0))
+        if ((graphe.liens[i][1] == sommet) && (searchSom(predecesseurs, cpt, graphe.liens[i][0]) == 0))
         {
             taille1 = taille1 + 1;
             predecesseurs = realloc(predecesseurs, taille1 * sizeof(char));
-            predecesseurs[cpt] = graphe.liens[i][1];
+            predecesseurs[cpt] = graphe.liens[i][0];
             cpt++;
-            printf("%s", "nique ta mere");
         }
         i++;
     }
@@ -69,11 +68,11 @@ char *voisinOriente2(Graph graphe, char sommet, int *taillePred, int *tailleSucc
     char *successeurs = malloc(sizeof(char));
     while (i < 330)
     {
-        if ((graphe.liens[i][1] == sommet) && (searchSom(successeurs, cpt, graphe.liens[i][0]) == 0))
+        if ((graphe.liens[i][0] == sommet) && (searchSom(successeurs, cpt, graphe.liens[i][1]) == 0))
         {
             taille2 = taille2 + 1;
             successeurs = realloc(successeurs, taille2 * sizeof(char));
-            successeurs[cpt] = graphe.liens[i][0];
+            successeurs[cpt] = graphe.liens[i][1];
             cpt++;
         }
         i++;
