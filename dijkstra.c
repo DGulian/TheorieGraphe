@@ -2,7 +2,11 @@
 #include <stdlib.h>
 #include "structure.h"
 
-
+char **lienMini()
+{
+    
+    return 
+}
 
 char *dijkNonOriente(Graph graphe,char *source)
 {

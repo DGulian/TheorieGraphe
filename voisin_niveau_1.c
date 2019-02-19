@@ -6,16 +6,18 @@ char **voisinNonOriente(Graph graphe, char sommet, int *nbrVois)
 {
     int i = 0;
     int cpt = 0;
-    char **predecesseurs = malloc(sizeof(char));
+    char **predecesseurs = malloc(sizeof(char)*2);
     int taille = 0;
     while (i < 330)
     {
+        printf("%s\n", "Test");
         if ((graphe.liens[i][0] == sommet) && (searchSom(predecesseurs, cpt, graphe.liens[i][1]) == 0))
         {
+            printf("%d", cpt);
             predecesseurs[cpt][0] = graphe.liens[i][1];
             predecesseurs[cpt][1] = graphe.liens[i][2];
             taille = taille + 1;
-            predecesseurs = realloc(predecesseurs, (taille) * sizeof(char));
+            predecesseurs = realloc(predecesseurs, ((taille) * sizeof(char))*2);
             cpt++;
         }
         i++;
