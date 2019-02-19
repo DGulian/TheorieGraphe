@@ -41,7 +41,7 @@ Graph initialisation_graphe()
         g.liens[i][1] = arrivee;
         printf("Poids du lien\n");
         scanf(" %d", &poids);
-        g.liens[i][3] = poids;
+        g.liens[i][2] = poids;
         i++;
     }
 
@@ -53,31 +53,31 @@ int main()
     printf("%s\n", "");
     int taillePred;
     int tailleSucc;
-    char *pred;
+    char **pred;
     char *succ;
     if (g.oriented==0)
     {
         pred = voisinNonOriente(g, 'A', &taillePred);
     }
-     if (g.oriented==1)
-    {
-        pred = voisinOriente1(g, 'A', &taillePred, &tailleSucc);
-        succ = voisinOriente2(g, 'A', &taillePred, &tailleSucc);
-    }
+    //  if (g.oriented==1)
+    // {
+        // pred = voisinOriente1(g, 'A', &taillePred, &tailleSucc);
+        // succ = voisinOriente2(g, 'A', &taillePred, &tailleSucc);
+    // }
     int i = 0;
         printf("Pred : %d ", taillePred);
     while (i < taillePred)
     {
-        printf("%c ", pred[i]);
+        printf("%c %c", pred[i][0], pred[i][1]);
         i++;
     }
-     i = 0;
-        printf("\nSucc : %d ", tailleSucc);
-    while (i < tailleSucc)
-    {
-        printf("%c ", succ[i]);
-        i++;
-    }
+    //  i = 0;
+        // printf("\nSucc : %d ", tailleSucc);
+    // while (i < tailleSucc)
+    // {
+        // printf("%c ", succ[i]);
+        // i++;
+    // }
     printf("%s\n", "");
     return 0;
 }
